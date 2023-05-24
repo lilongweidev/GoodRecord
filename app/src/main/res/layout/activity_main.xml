@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.MainActivity">
+
+    <com.google.android.material.appbar.MaterialToolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/purple_500"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:title="GoodRecord"
+        app:titleTextColor="@color/white"
+        tools:ignore="MissingClass" />
+
+    <LinearLayout
+        android:id="@+id/lay_format"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <TextView
+            android:id="@+id/tv_sample_rate_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="采样率："
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/sp_sample_rate"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/sp_sample_rate" />
+
+        <Spinner
+            android:id="@+id/sp_sample_rate"
+            android:layout_width="60dp"
+            android:layout_height="40dp"
+            android:background="@color/white"
+            android:dropDownVerticalOffset="45dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintStart_toEndOf="@+id/tv_sample_rate_title"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+
+        <TextView
+            android:id="@+id/tv_channel_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="通道："
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/sp_sample_rate"
+            app:layout_constraintStart_toEndOf="@+id/sp_sample_rate"
+            app:layout_constraintTop_toTopOf="@+id/sp_sample_rate" />
+
+        <Spinner
+            android:id="@+id/sp_channel"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:dropDownVerticalOffset="45dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintStart_toEndOf="@+id/tv_channel_title"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
+        <TextView
+            android:id="@+id/tv_encoding_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="编码："
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/sp_sample_rate"
+            app:layout_constraintStart_toEndOf="@+id/sp_channel"
+            app:layout_constraintTop_toTopOf="@+id/sp_sample_rate" />
+
+        <Spinner
+            android:id="@+id/sp_encoding"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_weight="1"
+            android:background="@color/white"
+            android:dropDownVerticalOffset="45dp"
+            android:spinnerMode="dropdown"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_encoding_title"
+            app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_file_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="16dp"
+        android:text="暂无录音文件"
+        android:textColor="@color/black"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lay_format" />
+
+    <Button
+        android:id="@+id/btn_record"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Record"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toStartOf="@+id/btn_play"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_file_info" />
+
+    <Button
+        android:id="@+id/btn_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/btn_record"
+        app:layout_constraintTop_toTopOf="@+id/btn_record" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_data"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_record" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
